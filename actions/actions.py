@@ -10,6 +10,9 @@ from json import *
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType,BotUttered
+from pyswip import Prolog
+from swiplserver import PrologMQI
+
 
 class ActionSessionStart(Action):
     def name(self) -> Text:
@@ -32,47 +35,18 @@ class ActionSessionStart(Action):
 
         # the session should begin with a `session_started` event
         events = [SessionStarted()]
-
-        dispatcher.utter_message("utter_saludar")
-
-        events.append(dispatcher.utter_message("utter_saludar"))
-
-
         # any slots that should be carried over should come after the
         # `session_started` event
         events.extend(self.fetch_slots(tracker))
         
         # an `action_listen` should be added at the end as a user message follows
-        msg="hola como estas?"
-        events.append(dispatcher.utter_message(text=msg))
 
         events.append(ActionExecuted("action_listen"))
 
         return events
 
 #ManipularJson
-"""class OperarArchivo():
-    @staticmethod
-    def guardar(AGuardar):
-        with open() as archivo_descarga:
-            json.dump(AGuardar, archivo_descarga, indent=4)
-        archivo_descarga.close()
 
-    @staticmethod
-    def cargarArchivo():
-        if os.path.isfile():
-"""
-
-objt_db = {
-    'bicicleta': 'costo: su valor es $1000',
-    'bateria': 'Costo: $60500',
-    'parlante': 'Costo: $7500',
-    'pelota de futbol': 'Costo: $4500',
-    'celular barato': 'Costo: $23000',
-    'celular caro': 'Costo: $120000',
-    'celular medio': 'Costo: $40000',
-    'zapatillas': 'Costo: $25000'
-}
 
 class AccionInformacionCompra(Action):
     def name(self) -> Text:
@@ -83,15 +57,13 @@ class AccionInformacionCompra(Action):
             ) -> List[Dict[Text, Any]]:
         objeto_actual = next(tracker.get_latest_entity_values("objeto"),None)
 
+        with PrologMQI(port=8000) as mqi:
+            with mqi.create_thread() as prolog_thread:
+                prolog_thread.query(r"consult('C:\Users\elmin\OneDrive\Escritorio\Uni y Prog\Prog. Exploratoria\data\conocimiento.pl')")
+                response = prolog_thread.query(f"objeto({objeto_actual},X,Y)")
 
-        objt = objt_db.get(objeto_actual,None)
-        if not objt:
-            msg = f"No he encontrado ninguna opcion disponible sobre {objeto_actual} en este momento :( "
-            dispatcher.utter_message(text=msg)
-            return[]
-        
-        msg = f"Creo que esto es lo que estas buscando: \n {objt_db[objeto_actual]} "
-        dispatcher.utter_message(text=msg)
+                print(str(response))
+                dispatcher.utter_message(text=f"Respuesta: {str(response)}")
 
         #SlotSet("compra",objeto_actual)
         return[]
