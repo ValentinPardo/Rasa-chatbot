@@ -1,0 +1,18 @@
+version: "3.1"
+
+rules:
+
+- rule: despedirse
+  steps:
+  - intent: Despedida
+  - action: utter_despedirse
+
+- rule: negar_ser_bot
+  steps:
+  - intent: Pregunta_Sobre_Bot
+  - action: utter_respuesta_sobre_bot
+
+- rule: detallar sobre compra
+  steps:
+  - intent: intencion_de_compra
+  - action: accion_informar_compra

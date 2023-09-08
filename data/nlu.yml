@@ -1,0 +1,173 @@
+version: "3.1"
+
+#-------------------------------
+nlu:
+
+#- entity: nombre
+#  value: Valentin
+#  component: SpyCyEntityExtractor
+
+#- regex: nombre__
+#  examples: |
+#  - #va el formato de nombre
+
+- intent: Saludo
+  examples: |
+    - Hola
+    - Hola, mi nombre es [Valentin](nombre)
+    - Ey
+    - Buenas, me llamo [Valentin](nombre)
+    - Buen dia
+    - Buen dia, mi nombre es [Valentin](nombre)
+    - Buenas tardes
+    - Buenas noches
+    - Hey
+    - ola
+    - Che
+
+#-------------------------------
+- intent: Saludo_Urgente
+  examples: |
+    - Eyyy
+    - Eu
+    - Euuu
+    - Cheee
+    - Estas?
+
+
+#-------------------------------
+- intent: Despedida
+  examples: |
+    - Chau
+    - Nos vemos
+    - Hasta luego
+    - Que te vaya bien
+    - Bye
+    - Despues hablamos
+    - Estamos al habla
+    - Mas tarde te aviso 
+
+
+#-------------------------------
+- intent: Afirmacion
+  examples: |
+    - Si
+    - Si,lo se
+    - Se
+    - Yes
+    - Por supuesto
+    - Claro
+    - Para mi que si
+    - Creo que si
+    - Seguro
+    - Seguramente
+    - Me gusta
+    - Esta bien
+    - Me parece bien
+    - Es verdad
+    - Cierto
+    - Efectivamente
+    - Exacto
+    - Te aseguro
+    - Sin duda
+    - De acuerdo
+    - Totalmente
+
+- intent: Negacion
+  examples: |
+    - No
+    - Ni
+    - En absoluto
+    - No hay
+    - Sin
+    - Nunca
+    - De ninguna manera
+    - De ningún modo
+    - De ninguna forma
+    - tampoco
+    - Jamas
+    - Claro que no
+    - No creo
+    - Ni en pedo
+    - En ningún caso
+    - En ningún momento
+    - En ninguna circunstancia
+
+- intent: Respuesta_Positiva
+  examples: |
+    - Perfecto
+    - Genial
+    - Increible
+    - Me siento bien
+    - Maravilloso
+    - Estoy genial
+    - Soy buenisimo
+    - Buenisimo
+    - Bueno
+    - Muy bueno
+    - Muy bien
+    - Bien
+    - Contento por
+    - Estoy contento
+    - Me siento increible
+    - Me siento libre
+
+
+#-------------------------------
+- intent: Respuesta_Negativa
+  examples: |
+    - Mi dia fue horrible
+    - Tuve un mal dia
+    - Estoy triste
+    - No me siento bien
+    - No me siento muy bien
+    - Estoy desepcionado
+    - Estoy frustrado
+    - Muy triste
+    - Me siento decepcionado
+    - Estoy muy trsite
+    - Triste
+    - Infeliz
+    - Me siento infeliz
+    - No estoy bien
+    - No esta bien
+    - Estoy mal
+    - Siento tristeza
+
+#-------------------------------
+- intent: pregunta_cordial
+  examples: |
+    - bien y vos?
+    - muy bien! vos?
+    - me encuentro excelente, usted?
+
+#-------------------------------
+- intent: Pregunta_Sobre_Bot
+  examples: |
+    - Con quien estoy hablando?
+    - Sos un robot?
+    - Sos humano?
+    - Estoy hablando con un bot?
+    - Estoy hablando con un humano?
+
+#-------------------------------
+- intent: intencion_de_compra
+  examples: |
+    - podrias buscar una [bicicleta](objeto)?
+    - dame informacion sobre la [bateria](objeto).
+    - quisiera comprar un [celular barato](objeto)
+    - quisiera comprar un [celular medio](objeto).
+    - quisiera comprar un [celular caro](objeto)
+    - dame detalles sobre una [pelota de futbol](objeto)
+    - cuanto cuesta un [parlante](objeto)?
+    - cuanto cuesta una [pelota de futbol](objeto)?
+- lookup: objeto
+  examples: |
+    - bicicleta
+    - bateria
+    - celular barato
+    - celular medio
+    - celular caro
+    - pelota
+    - parlante
+    - zapatillas

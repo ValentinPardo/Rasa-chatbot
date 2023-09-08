@@ -1,0 +1,54 @@
+version: "3.1"
+
+rules:
+  - despedirse
+  - negar_ser_bot
+
+intents:
+  - Saludo
+  - Saludo_Urgente
+  - Despedida
+  - Afirmacion
+  - Negacion
+  - Respuesta_Positiva
+  - Respuesta_Negativa
+  - Pregunta_Sobre_Bot
+  - intencion_de_compra
+
+entities:
+- objeto
+
+responses:
+  utter_saludar:
+  - text: "Hola! Como estas?"
+
+  utter_animar:
+  - text: "Tal vez esto te haga reir"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_preguntar_si_esta_mejor:
+  - text: "Estas mejor?"
+
+  utter_responder_positivamente:
+  - text: "Genial, segui asi!"
+  - text: "bieen, gracias por preguntar. Que hiciste hoy"
+
+  utter_disculparse:
+  - text: "Lo siento mucho, espero lo puedas superar :("
+
+  utter_despedirse:
+  - text: "Nos vemos! <3"
+
+  utter_respuesta_sobre_bot:
+  - text: "un bot? me estas preguntando eso en serio?"
+
+  utter_que_busca:
+  - text: "Muy bien! que deseabas buscar en ML?"
+
+actions:
+  - action_session_start
+  - accion_informar_compra
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,39 @@
+version: "3.1"
+
+stories:
+
+- story: Camino largo
+  steps:
+  - intent: Saludo
+  - action: utter_saludar
+  - intent: pregunta_cordial
+  - action: utter_que_busca
+
+- story: Camino feliz
+  steps:
+  - intent: Saludo
+  - action: utter_saludar
+  - intent: Respuesta_Positiva
+  - action: utter_responder_positivamente
+
+- story: Camino trsite 1
+  steps:
+  - intent: Saludo
+  - action: utter_saludar
+  - intent: Respuesta_Negativa
+  - action: utter_animar
+  - action: utter_preguntar_si_esta_mejor
+  - intent: Afirmacion
+  - action: utter_responder_positivamente
+
+- story: Camino trsite 2
+  steps:
+  - intent: Saludo
+  - action: utter_saludar
+  - intent: Respuesta_Negativa
+  - action: utter_animar
+  - action: utter_preguntar_si_esta_mejor
+  - intent: Negacion
+  - action: utter_disculparse
+  - intent: Afirmacion
+  - action: utter_despedirse
