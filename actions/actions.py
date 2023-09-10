@@ -11,7 +11,9 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType,BotUttered
+from pyswip import Prolog
 from swiplserver import PrologMQI
+
 
 
 class ActionSessionStart(Action):
@@ -61,9 +63,11 @@ class AccionInformacionCompra(Action):
         with PrologMQI(port=8000) as mqi:
             with mqi.create_thread() as prolog_thread:
                 prolog_thread.query("consult('C:/Users/elmin/OneDrive/Escritorio/Uni y Prog/Prog. Exploratoria/data/conocimiento.pl')")
+                #if !(objeto_actual tiene espacios) then
                 result = prolog_thread.query(f"objeto({objeto_actual},X,Y)")
+                #else
+                #result = prolog_thread.query(f"objeto('{objeto_actual}',X,Y)")
                 #result = prolog_thread.query_async_result()
-                print(str(result))
 
                 dispatcher.utter_message(text=f"Respuesta: {str(result)}")
 
