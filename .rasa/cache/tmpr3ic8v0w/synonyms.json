@@ -1,0 +1,21 @@
+{
+  "vehiculo": "vehiculo",
+  "inmueble": "inmueble",
+  "producto": "producto",
+  "servicio": "servicio",
+  "bicicleta": "bicicleta",
+  "bateria": "bateria",
+  "gama baja": "gama baja",
+  "gama media": "gama media",
+  "gama alta": "gama alta",
+  "pelota de futbol": "pelota de futbol",
+  "parlante": "parlante",
+  "electricista": "electricista",
+  "limpieza": "limpieza",
+  "mantenimiento de jardines": "mantenimiento de jardines",
+  "plomería": "plomería",
+  "casa": "casa",
+  "apartamento": "apartamento",
+  "terreno": "terreno",
+  "local": "local"
+}

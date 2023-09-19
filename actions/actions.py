@@ -11,9 +11,13 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType,BotUttered
-from pyswip import Prolog
 from swiplserver import PrologMQI
+import json
 
+
+from typing import Any, Text, Dict, List
+from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted, EventType
 
 
 class ActionSessionStart(Action):
@@ -22,7 +26,7 @@ class ActionSessionStart(Action):
 
     @staticmethod
     def fetch_slots(tracker: Tracker) -> List[EventType]:
-        #Collect slots that contain the user's name and phone number.
+        """Collect slots that contain the user's name and phone number."""
 
         slots = []
         for key in ("name", "phone_number"):
@@ -37,18 +41,45 @@ class ActionSessionStart(Action):
 
         # the session should begin with a `session_started` event
         events = [SessionStarted()]
+
         # any slots that should be carried over should come after the
         # `session_started` event
         events.extend(self.fetch_slots(tracker))
-        
-        # an `action_listen` should be added at the end as a user message follows
 
+        # an `action_listen` should be added at the end as a user message follows
         events.append(ActionExecuted("action_listen"))
 
         return events
 
 #ManipularJson
 
+
+class AccionOpciones(Action):
+    def name(self) -> Text:
+        return "accion_opciones"
+    
+    async def run(
+            self, dispatcher:CollectingDispatcher,
+            tracker: Tracker, domain: Dict[Text, Any]
+            ) -> List[Dict[Text, Any]]:
+        categoria = next(tracker.get_latest_entity_values("categoria"),None)
+
+        with PrologMQI(port=8000) as mqi:
+            with mqi.create_thread() as prolog_thread:
+                prolog_thread.query("consult('C:/Users/elmin/OneDrive/Escritorio/Uni y Prog/Prog. Exploratoria/data/conocimiento.pl')")
+
+                result = prolog_thread.query(f"{categoria}(_).")
+                
+                if not result:
+                    dispatcher.utter_message(text=f"Lo siento, no encontre nada relacionado a la categoria {categoria}")
+                    return[]
+                else:
+                    result = list(prolog_thread.query(f"{categoria}(X)."))
+
+                dispatcher.utter_message(text=f"Estos son los {categoria}s disponibles: \n" + str(result))
+
+        #SlotSet("categoria",categoria)
+        return[]
 
 class AccionInformacionCompra(Action):
     def name(self) -> Text:
@@ -58,20 +89,53 @@ class AccionInformacionCompra(Action):
             self, dispatcher:CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]
             ) -> List[Dict[Text, Any]]:
-        objeto_actual = next(tracker.get_latest_entity_values("objeto"),None)
+        buscado = next(tracker.get_latest_entity_values("objeto"),None)
+        #categoria = next(tracker.get_latest_entity_values("categoria"),None)
 
         with PrologMQI(port=8000) as mqi:
             with mqi.create_thread() as prolog_thread:
-                prolog_thread.query("consult('C:/Users/elmin/OneDrive/Escritorio/Uni y Prog/Prog. Exploratoria/data/conocimiento.pl')")
-                #if !(objeto_actual tiene espacios) then
-                result = prolog_thread.query(f"objeto({objeto_actual},X,Y)")
-                #else
-                #result = prolog_thread.query(f"objeto('{objeto_actual}',X,Y)")
-                #result = prolog_thread.query_async_result()
 
-                dispatcher.utter_message(text=f"Respuesta: {str(result)}")
+                prolog_thread.query("consult('C:/Users/elmin/OneDrive/Escritorio/Uni y Prog/Prog. Exploratoria/data/conocimiento.pl')")
+                
+                print("llego")
+
+                if " " in buscado:
+                    #result = prolog_thread.query(f"{categoria}('{buscado}').")
+                    result = prolog_thread.query(f"producto('{buscado}').")
+                else:
+                    result = prolog_thread.query(f"producto(bicicleta).")
+                    #result = prolog_thread.query(f"{categoria}({buscado}).")
+                
+                if not result:
+                    dispatcher.utter_message(text=f"Lo siento, no encontre nada relacionado a {buscado}")
+                    return[]
+                else:
+                    # Cargar el archivo JSON en una variable de Python
+                    with open("C:/Users/elmin/OneDrive/Escritorio/Uni y Prog/Prog. Exploratoria/data/info.json", "r") as archivo:
+                        datos_cargados = json.load(archivo)
+
+                    # Buscar los datos por una key específica
+                    if not result:
+                        precio = datos_cargados[f"'{buscado}'"]["precio"]
+                        descripcion = datos_cargados[f"'{buscado}'"]["descripcion"]
+                    else:
+                        precio = datos_cargados[f"{buscado}"]["precio"]
+                        descripcion = datos_cargados[f"{buscado}"]["descripcion"]
+
+                dispatcher.utter_message(text=f"Tal vez esto te interese :) \n Precio: {str(precio)} \n Descripcion: {str(descripcion)} ")
 
         #SlotSet("compra",objeto_actual)
         return[]
         
-        
+    
+    #class AccionSaludar(Action):
+    #def name(self) -> Text:
+    #    return "accion_saludar"
+    #async def run(
+    #        self, dispatcher:CollectingDispatcher,
+    #        tracker: Tracker, domain: Dict[Text, Any]
+    #        ) -> List[Dict[Text, Any]]:
+    #        #recuperar entidad nombre
+    #        #dispatcher(f"hola {nombre}, un gusto hablar con usted")
+    #return[]
+    

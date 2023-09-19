@@ -1,31 +1,16 @@
 version: "3.1"
-
-#-------------------------------
 nlu:
-
-#- entity: nombre
-#  value: Valentin
-#  component: SpyCyEntityExtractor
-
-#- regex: nombre__
-#  examples: |
-#  - #va el formato de nombre
-
 - intent: Saludo
   examples: |
     - Hola
-    - Hola, mi nombre es [Valentin](nombre)
     - Ey
-    - Buenas, me llamo [Valentin](nombre)
     - Buen dia
-    - Buen dia, mi nombre es [Valentin](nombre)
     - Buenas tardes
     - Buenas noches
     - Hey
     - ola
     - Che
-
-#-------------------------------
+    - hola
 - intent: Saludo_Urgente
   examples: |
     - Eyyy
@@ -33,9 +18,6 @@ nlu:
     - Euuu
     - Cheee
     - Estas?
-
-
-#-------------------------------
 - intent: Despedida
   examples: |
     - Chau
@@ -46,9 +28,6 @@ nlu:
     - Despues hablamos
     - Estamos al habla
     - Mas tarde te aviso
-
-
-#-------------------------------
 - intent: Afirmacion
   examples: |
     - Si
@@ -72,7 +51,6 @@ nlu:
     - Sin duda
     - De acuerdo
     - Totalmente
-
 - intent: Negacion
   examples: |
     - No
@@ -92,7 +70,6 @@ nlu:
     - En ningún caso
     - En ningún momento
     - En ninguna circunstancia
-
 - intent: Respuesta_Positiva
   examples: |
     - Perfecto
@@ -111,9 +88,6 @@ nlu:
     - Estoy contento
     - Me siento increible
     - Me siento libre
-
-
-#-------------------------------
 - intent: Respuesta_Negativa
   examples: |
     - Mi dia fue horrible
@@ -133,15 +107,11 @@ nlu:
     - No esta bien
     - Estoy mal
     - Siento tristeza
-
-#-------------------------------
 - intent: pregunta_cordial
   examples: |
     - bien y vos?
     - muy bien! vos?
     - me encuentro excelente, usted?
-
-#-------------------------------
 - intent: Pregunta_Sobre_Bot
   examples: |
     - Con quien estoy hablando?
@@ -149,25 +119,54 @@ nlu:
     - Sos humano?
     - Estoy hablando con un bot?
     - Estoy hablando con un humano?
+- intent: indicar_categoria
+  examples: |
+    - estoy buscando un [vehiculo](categoria)
+    - estoy buscando un [inmueble](categoria)
+    - estoy buscando un [producto](categoria)
+    - estoy buscando un [servicio](categoria)
 
-#-------------------------------
+- lookup: catergoria
+  examples: |
+    - vehiculo
+    - inmueble
+    - producto
+    - servicio
+
 - intent: intencion_de_compra
   examples: |
     - podrias buscar una [bicicleta](objeto)?
-    - dame informacion sobre la [bateria](objeto).
-    - quisiera comprar un [celular barato](objeto)
-    - quisiera comprar un [celular medio](objeto).
-    - quisiera comprar un [celular caro](objeto)
+    - dame informacion sobre una [bateria](objeto).
+    - quisiera comprar un [celular gama baja](objeto)
+    - quisiera comprar un [celular gama media](objeto).
+    - quisiera comprar un [celular gama alta](objeto)
     - dame detalles sobre una [pelota de futbol](objeto)
     - cuanto cuesta un [parlante](objeto)?
     - cuanto cuesta una [pelota de futbol](objeto)?
+    - quisiera contratar un servicio de [electricista](objeto)
+    - quisiera contratar un servicio de [limpieza](objeto)
+    - quisiera contratar un servicio de [mantenimiento de jardines](objeto)
+    - quisiera contratar un servicio de [plomería](objeto)
+    - estoy interesado en comprar una [casa](objeto)
+    - estoy interesado en comprar un [apartamento](objeto)
+    - estoy interesado en comprar un [terreno](objeto)
+    - estoy interesado en comprar un [local](objeto)
+
 - lookup: objeto
   examples: |
     - bicicleta
     - bateria
-    - celular barato
-    - celular medio
-    - celular caro
+    - celular gama baja
+    - celular gama media
+    - celular gama alta
     - pelota
     - parlante
     - zapatillas
+    - casa
+    - apartamento
+    - terreno
+    - local
+    - plomería
+    - electricista
+    - limpieza
+    - mantenimiento de jardines

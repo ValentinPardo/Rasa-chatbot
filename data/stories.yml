@@ -2,12 +2,24 @@ version: "3.1"
 
 stories:
 
-- story: Camino largo
+#- story: Camino con nombre
+#  steps:
+#  - intent: presentacion_con_nombre
+#  - action: accion_saludar
+#  - intent: pregunta_cordial
+#  - action: utter_que_busca
+
+- story: Camino compra
   steps:
   - intent: Saludo
   - action: utter_saludar
   - intent: pregunta_cordial
+  #form para averiguar categoria, luego mostrar opciones y terminar en rule accion_informar_compra
   - action: utter_que_busca
+  #- intent: indicar_categoria
+  #- action: accion_opciones
+    #slotset categoria
+  
 
 - story: Camino feliz
   steps:

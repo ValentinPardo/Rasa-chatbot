@@ -1,6 +1,0 @@
-[
-  {
-    "name": "objeto",
-    "pattern": "(\\bbicicleta\\b|\\bbateria\\b|\\bcelular\\ barato\\b|\\bcelular\\ medio\\b|\\bcelular\\ caro\\b|\\bpelota\\b|\\bparlante\\b|\\bzapatillas\\b)"
-  }
-]

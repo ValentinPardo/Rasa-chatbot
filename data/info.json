@@ -1,0 +1,72 @@
+{
+
+"bicicleta": {
+  "precio": "$113.699",
+  "descripcion": "Bicicleta Mountain Bike Kuwara Rod 29 Mtb 21 Vel"
+},
+
+"bateria": {
+  "precio": "$308.195",
+  "descripcion": "Bateria Completa Natal 5 Cuerpos Fierros Platillos Banqueta"
+},
+
+"parlante": {
+    "precio": "$26999",
+    "descripcion": "Parlante Spica SP-4408 portátil con bluetooth negro 220V"
+},
+"pelota de futbol": {
+    "precio": "$17999",
+    "descripcion": "Pelota Fútbol Penalty Campo Bravo Xxi N° 5 F11"
+},
+"celular gama baja": {
+    "precio": "$67999",
+    "descripcion": "Motorola Moto E13 64gb 2gb Ram Azul Turquesa"
+},
+"celular gama alta": {
+    "precio": "$549999",
+    "descripcion": "Motorola Edge 40 Pro 256gb 12gb Ram + Hdmi + Remote Negro"
+},
+"celular gama media": {
+    "precio": "$270000",
+    "descripcion": "Samsung Galaxy A53 5g 128gb Nuevo"
+},
+"zapatillas": {
+    "precio": "$36599",
+    "descripcion": "Zapatillas Puma Slipstream Archive Remastered Kids Sportsty"
+},
+
+"casa": {
+    "precio": " U$S 200000",
+    "descripcion": "Casa de 3 dormitorios en zona residencial"
+},
+"apartamento": {
+    "precio": " U$S 150000",
+    "descripcion": "Apartamento de 2 habitaciones con vista al mar"
+},
+"terreno": {
+    "precio": " U$S 80000",
+    "descripcion": "Terreno de 500 m2 en zona comercial"
+},
+"local": {
+    "precio": " U$S 120000",
+    "descripcion": "Local comercial en avenida principal"
+},
+
+"plomería": {
+    "precio": "$5000/h",
+    "descripcion": "Servicio de plomería para reparaciones y mantenimiento de tuberías"
+},
+"electricista": {
+    "precio": "$8000/h",
+    "descripcion": "Servicio de electricidad para instalaciones y reparaciones eléctricas"
+},
+"limpieza": {
+    "precio": "$3000/h",
+    "descripcion": "Servicio de limpieza para hogares y oficinas"
+},
+"mantenimiento de jardines": {
+    "precio": "$6000/h",
+    "descripcion": "Servicio de mantenimiento de jardines para poda y cuidado de plantas"
+}
+
+}
