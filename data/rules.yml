@@ -12,12 +12,12 @@ rules:
   - intent: Pregunta_Sobre_Bot
   - action: utter_respuesta_sobre_bot
 
-- rule: detallar sobre compra
-  steps:
-  - intent: intencion_de_compra
-  - action: accion_informar_compra
+#- rule: detallar sobre compra
+#  steps:
+#  - intent: intencion_de_compra
+#  - action: accion_informar_compra
 
-- rule: buscar categoria
-  steps:
-  - intent: indicar_categoria
-  - action: accion_opciones
+#- rule: buscar categoria
+#  steps:
+#  - intent: indicar_categoria
+#  - action: accion_opciones

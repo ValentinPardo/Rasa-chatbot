@@ -2,50 +2,46 @@ version: "3.1"
 
 stories:
 
-#- story: Camino con nombre
-#  steps:
-#  - intent: presentacion_con_nombre
-#  - action: accion_saludar
-#  - intent: pregunta_cordial
-#  - action: utter_que_busca
+- story: Camino con nombre
+  steps:
+  - intent: Saludo_con_nombre
+  - slot_was_set:
+    - nombre: "nombre"
+  - action: accion_saludar
+  - intent: pregunta_cordial
+  - action: utter_ask_compra_categoria
+  - intent: indicar_categoria
+  - action: accion_opciones
+  - action: utter_busqueda_afirmativa
+  - intent: Afirmacion
+  - action: utter_ask_compra_objeto
+  - intent: intencion_de_compra
+  - action: accion_informar_compra
 
-- story: Camino compra
+- story: Camino_sin_nombre
   steps:
   - intent: Saludo
-  - action: utter_saludar
+  - action: accion_saludar
   - intent: pregunta_cordial
-  #form para averiguar categoria, luego mostrar opciones y terminar en rule accion_informar_compra
-  - action: utter_que_busca
-  #- intent: indicar_categoria
-  #- action: accion_opciones
-    #slotset categoria
+  - action: utter_ask_compra_categoria
+  - intent: indicar_categoria
+  - action: accion_opciones
+  - action: utter_busqueda_afirmativa
+  - intent: Afirmacion
+  - action: utter_ask_compra_objeto
+  - intent: intencion_de_compra
+  - action: accion_informar_compra
+
+  
+  #- action: utter_finalizar_compra
+  #- slot_was_set:
+  #  - categoria: categoria
+  
+  
+  
+  #- slot_was_set:
+  #  - objeto: objeto
+  #- intent: Afirmacion
+  
   
 
-- story: Camino feliz
-  steps:
-  - intent: Saludo
-  - action: utter_saludar
-  - intent: Respuesta_Positiva
-  - action: utter_responder_positivamente
-
-- story: Camino trsite 1
-  steps:
-  - intent: Saludo
-  - action: utter_saludar
-  - intent: Respuesta_Negativa
-  - action: utter_animar
-  - action: utter_preguntar_si_esta_mejor
-  - intent: Afirmacion
-  - action: utter_responder_positivamente
-
-- story: Camino trsite 2
-  steps:
-  - intent: Saludo
-  - action: utter_saludar
-  - intent: Respuesta_Negativa
-  - action: utter_animar
-  - action: utter_preguntar_si_esta_mejor
-  - intent: Negacion
-  - action: utter_disculparse
-  - intent: Afirmacion
-  - action: utter_despedirse

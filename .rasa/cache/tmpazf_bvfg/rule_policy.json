@@ -1,0 +1,22 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Despedida\"}}]": "utter_despedirse",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Despedida\"}}, {\"prev_action\": {\"action_name\": \"utter_despedirse\"}, \"user\": {\"intent\": \"Despedida\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}]": "utter_respuesta_sobre_bot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}, {\"prev_action\": {\"action_name\": \"utter_respuesta_sobre_bot\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [],
+    "rules_for_loop_unhappy_path": {},
+    "rules_not_in_stories": [
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Despedida\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}]",
+      "predicting default action with intent back",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Despedida\"}}, {\"prev_action\": {\"action_name\": \"utter_despedirse\"}, \"user\": {\"intent\": \"Despedida\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}, {\"prev_action\": {\"action_name\": \"utter_respuesta_sobre_bot\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}]"
+    ]
+  }
+}

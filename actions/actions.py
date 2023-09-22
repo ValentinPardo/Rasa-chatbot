@@ -78,7 +78,7 @@ class AccionOpciones(Action):
 
                 dispatcher.utter_message(text=f"Estos son los {categoria}s disponibles: \n" + str(result))
 
-        #SlotSet("categoria",categoria)
+        SlotSet("categoria",categoria)
         return[]
 
 class AccionInformacionCompra(Action):
@@ -89,8 +89,9 @@ class AccionInformacionCompra(Action):
             self, dispatcher:CollectingDispatcher,
             tracker: Tracker, domain: Dict[Text, Any]
             ) -> List[Dict[Text, Any]]:
-        buscado = next(tracker.get_latest_entity_values("objeto"),None)
-        #categoria = next(tracker.get_latest_entity_values("categoria"),None)
+        categoria = tracker.get_slot("categoria")
+
+        objeto = next(tracker.get_latest_entity_values("objeto"),None)
 
         with PrologMQI(port=8000) as mqi:
             with mqi.create_thread() as prolog_thread:
@@ -99,15 +100,13 @@ class AccionInformacionCompra(Action):
                 
                 print("llego")
 
-                if " " in buscado:
-                    #result = prolog_thread.query(f"{categoria}('{buscado}').")
-                    result = prolog_thread.query(f"producto('{buscado}').")
+                if " " in objeto:
+                    result = prolog_thread.query(f"{categoria}('{objeto}').")
                 else:
-                    result = prolog_thread.query(f"producto(bicicleta).")
-                    #result = prolog_thread.query(f"{categoria}({buscado}).")
+                    result = prolog_thread.query(f"{categoria}({objeto}).")
                 
                 if not result:
-                    dispatcher.utter_message(text=f"Lo siento, no encontre nada relacionado a {buscado}")
+                    dispatcher.utter_message(text=f"Lo siento, no encontre nada relacionado a {objeto}")
                     return[]
                 else:
                     # Cargar el archivo JSON en una variable de Python
@@ -116,26 +115,27 @@ class AccionInformacionCompra(Action):
 
                     # Buscar los datos por una key específica
                     if not result:
-                        precio = datos_cargados[f"'{buscado}'"]["precio"]
-                        descripcion = datos_cargados[f"'{buscado}'"]["descripcion"]
+                        precio = datos_cargados[f"'{objeto}'"]["precio"]
+                        descripcion = datos_cargados[f"'{objeto}'"]["descripcion"]
                     else:
-                        precio = datos_cargados[f"{buscado}"]["precio"]
-                        descripcion = datos_cargados[f"{buscado}"]["descripcion"]
+                        precio = datos_cargados[f"{objeto}"]["precio"]
+                        descripcion = datos_cargados[f"{objeto}"]["descripcion"]
 
                 dispatcher.utter_message(text=f"Tal vez esto te interese :) \n Precio: {str(precio)} \n Descripcion: {str(descripcion)} ")
-
-        #SlotSet("compra",objeto_actual)
-        return[]
         
-    
-    #class AccionSaludar(Action):
-    #def name(self) -> Text:
-    #    return "accion_saludar"
-    #async def run(
-    #        self, dispatcher:CollectingDispatcher,
-    #        tracker: Tracker, domain: Dict[Text, Any]
-    #        ) -> List[Dict[Text, Any]]:
-    #        #recuperar entidad nombre
-    #        #dispatcher(f"hola {nombre}, un gusto hablar con usted")
-    #return[]
-    
+        SlotSet("objeto",objeto)
+        return[]
+
+class ActionSaludar(Action):
+    def name(self):
+        return "accion_saludar"
+
+    def run(self, dispatcher, tracker, domain):
+        nombre = tracker.get_slot("nombre")
+        if nombre:
+            mensaje = f"Hola, {nombre}! ¿como estas?"
+        else:
+            mensaje = "Hola! ¿como estas?"
+
+        dispatcher.utter_message(mensaje)
+        return []

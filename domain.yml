@@ -10,16 +10,37 @@ intents:
 - Respuesta_Negativa
 - Respuesta_Positiva
 - Saludo
-- Saludo_Urgente
+- Saludo_con_nombre
 - indicar_categoria
 - intencion_de_compra
 - pregunta_cordial
+
 entities:
+- nombre
 - objeto
 - categoria
+slots:
+  categoria:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: categoria
+  objeto:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: objeto
+  nombre:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: nombre
+
 responses:
   utter_saludar:
   - text: Hola! Como estas?
+  utter_saludar_con_nombre:
+  - text: Hola {nomre}! Como estas?
   utter_animar:
   - text: Tal vez esto te haga reir
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -36,10 +57,18 @@ responses:
   - text: un bot? me estas preguntando eso en serio?
   utter_que_busca:
   - text: Muy bien! Sobre que categoria deseabas buscar en ML?
+  utter_ask_compra_categoria:
+  - text: "Muy bien gracias!, Si deseas hacer una busqueda, estas son las categorias por las que puedes buscar:
+          1-Vehiculo 2-Servicio 3-Objeto 4-Inmueble"
+  utter_busqueda_afirmativa:
+  - text: Te intereso alguno?
+  utter_ask_compra_objeto:
+  - text: Cual de ellos te interesa?
+  utter_finalizar_compra:
+  - text: Perfecto, dejame tu email asi te envio los todos los detalles!
+  
+
 actions:
 - accion_informar_compra
 - accion_opciones
-- utter_saludar
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+- accion_saludar

@@ -1,5 +1,6 @@
 version: "3.1"
 nlu:
+
 - intent: Saludo
   examples: |
     - Hola
@@ -11,13 +12,6 @@ nlu:
     - ola
     - Che
     - hola
-- intent: Saludo_Urgente
-  examples: |
-    - Eyyy
-    - Eu
-    - Euuu
-    - Cheee
-    - Estas?
 - intent: Despedida
   examples: |
     - Chau
@@ -125,6 +119,10 @@ nlu:
     - estoy buscando un [inmueble](categoria)
     - estoy buscando un [producto](categoria)
     - estoy buscando un [servicio](categoria)
+    - me interesa un [vehiculo](categoria)
+    - me interesa un [inmueble](categoria)
+    - me interesa un [producto](categoria)
+    - me interesa un [servicio](categoria)
 
 - lookup: catergoria
   examples: |
@@ -170,3 +168,144 @@ nlu:
     - electricista
     - limpieza
     - mantenimiento de jardines
+    - peugeot
+    - amarok
+    - vento
+    - partner
+
+- intent: Saludo_con_nombre
+  examples: |
+    - Hola mi nombre es [Valentin](nombre)
+    - Hola, mi nombre es [Alex](nombre)
+    - Ey me llamo [Juan](nombre)
+    - Buenas tardes, mi nombre es [Lucia](nombre)
+
+- lookup: nombre
+  examples: |
+    - Lucia
+    - Valentin
+    - Isabella
+    - Daniel
+    - Olivia
+    - David
+    - Gabriel
+    - Alexis
+    - Sofía
+    - Benjamín
+    - Victoria
+    - Samuel
+    - Amelia
+    - Lucas
+    - Alexa
+    - Ángel
+    - Julia
+    - José
+    - Camila
+    - Adrián
+    - Alexandra
+    - Sebastián
+    - Maya
+    - Xavier
+    - Andrea
+    - Juan
+    - Ariana
+    - Luis
+    - María
+    - Diego
+    - Eva
+    - Óliver
+    - Angelina
+    - Carlos
+    - Valeria
+    - Jesús
+    - Natalia
+    - Alex
+    - Isabel
+    - Max
+    - Sara
+    - Alejandro
+    - Liliana
+    - Antonio
+    - Adriana
+    - Miguel
+    - Víctor
+    - Daniela
+    - Santiago
+    - Valentina
+    - Elías
+    - Lila
+    - Iván
+    - Vivian
+    - Óscar
+    - Nora
+    - Leonardo
+    - Eduardo
+    - Alan
+    - Nicolás
+    - Jorge
+    - Alana
+    - Omar
+    - Paúl
+    - Amanda
+    - Andrés
+    - Julián
+    - Josué
+    - Penélope
+    - Román
+    - Fernando
+    - Javier
+    - Abraham
+    - Alicia
+    - Ricardo
+    - Francisco
+    - César
+    - Mario
+    - Manuel
+    - Édgar
+    - Alexis
+    - Israel
+    - Ximena
+    - Héctor
+    - Cecilia
+    - Emiliano
+    - Simón
+    - Rafael
+    - Daniella
+    - Martín
+    - Marcos
+    - Roberto
+    - Pedro
+    - Emanuel
+    - Abel
+    - Rubén
+    - Fabián
+    - Emilio
+    - Joaquín
+    - Tatiana
+    - Lorenzo
+    - Armando
+    - Adán
+    - Raúl
+    - Julio
+    - Enrique
+    - Gerardo
+    - Pablo
+    - Jaime
+    - Saúl
+    - Esteban
+    - Gustavo
+    - Rodrigo
+    - Arturo
+    - Mauricio
+    - Orlando
+    - Hugo
+    - Mateo
+    - Martín
+    - Lucas
+    - Leo
+    - Daniel
+    - Alejandro
+    - Manuel
+    - Pablo
+    - Álvaro
+    

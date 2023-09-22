@@ -67,6 +67,22 @@
 "mantenimiento de jardines": {
     "precio": "$6000/h",
     "descripcion": "Servicio de mantenimiento de jardines para poda y cuidado de plantas"
+},
+"peugeot": {
+    "precio": "$36.300.000",
+    "descripcion": "Peugeot 3008 1.6 Gt-line Thp Pack Tiptronic"
+},
+"amarok": {
+    "precio": "$25.900.000",
+    "descripcion": "Volkswagen Amarok 3.0 V6 Extreme"
+},
+"vento": {
+    "precio": "$25.400.000",
+    "descripcion": "Volkswagen Vento 2.0 Tsi Gli 211cv App Connect + Nav"
+},
+"partner": {
+    "precio": "$9.110.000",
+    "descripcion": "Peugeot Partner 1.6 Furgon Confort"
 }
 
 }
