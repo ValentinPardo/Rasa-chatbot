@@ -12,6 +12,22 @@ rules:
   - intent: Pregunta_Sobre_Bot
   - action: utter_respuesta_sobre_bot
 
+- rule: Activate form
+  steps:
+  - intent: pregunta_cordial
+  - action: data_form
+  - active_loop: data_form
+
+- rule: Deactivate form
+  condition:
+  - active_loop: data_form
+  steps:
+  - action: data_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: accion_tal_vez_te_intereseX
+
 #- rule: detallar sobre compra
 #  steps:
 #  - intent: intencion_de_compra

@@ -113,6 +113,7 @@ nlu:
     - Sos humano?
     - Estoy hablando con un bot?
     - Estoy hablando con un humano?
+
 - intent: indicar_categoria
   examples: |
     - estoy buscando un [vehiculo](categoria)
@@ -308,4 +309,130 @@ nlu:
     - Manuel
     - Pablo
     - Álvaro
-    
+
+- intent: declaracion_edad
+  examples: |
+    - tengo [15](edad) años
+    - tengo [20](edad) años
+    - tengo [35](edad) años
+    - tengo [50](edad) años
+    - [22](edad) años
+    - [34](edad) años
+    - [55](edad) años
+  
+- lookup: edad
+  examples: |
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+    - 34
+    - 35
+    - 36
+    - 37
+    - 38
+    - 39
+    - 40
+    - 41
+    - 42
+    - 43
+    - 44
+    - 45
+    - 46
+    - 47
+    - 48
+    - 49
+    - 50
+    - 51
+    - 52
+    - 53
+    - 54
+    - 55
+    - 56
+    - 57
+    - 58
+    - 59
+    - 60
+    - 61
+    - 62
+    - 63
+    - 64
+    - 65
+    - 66
+    - 67
+    - 68
+    - 69
+    - 70
+    - 71
+    - 72
+    - 73
+    - 74
+    - 75
+    - 76
+    - 77
+    - 78
+    - 79
+    - 80
+    - 81
+    - 82
+    - 83
+    - 84
+    - 85
+    - 86
+    - 87
+    - 88
+    - 89
+    - 90
+    - 91
+    - 92
+    - 93
+    - 94
+    - 95
+    - 96
+    - 97
+    - 98
+    - 99
+
+- intent: declaracion_sexo
+  examples: |
+    - soy [hombre](sexo)
+    - soy [mujer](sexo)
+    - [hombre](sexo)
+    - [mujer](sexo)
+
+- lookup: sexo
+  examples: |
+    - hombre
+    - mujer
+
+- intent: declaracion_estudios
+  examples: |
+    - complete hasta el [secundario](estudios)
+    - complete hasta los estudios [primarios](estudios)
+    - complete los [universitarios](estudios)
+
+- lookup: estudios
+  examples: |
+    - primarios
+    - secundarios
+    - universitarios

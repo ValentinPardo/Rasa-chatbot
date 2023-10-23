@@ -1,0 +1,10 @@
+[
+  {
+    "name": "objeto",
+    "pattern": "(\\bbicicleta\\b|\\bbateria\\b|\\bcelular\\ gama\\ baja\\b|\\bcelular\\ gama\\ media\\b|\\bcelular\\ gama\\ alta\\b|\\bpelota\\b|\\bparlante\\b|\\bzapatillas\\b|\\bcasa\\b|\\bapartamento\\b|\\bterreno\\b|\\blocal\\b|\\bplomería\\b|\\belectricista\\b|\\blimpieza\\b|\\bmantenimiento\\ de\\ jardines\\b|\\bpeugeot\\b|\\bamarok\\b|\\bvento\\b|\\bpartner\\b)"
+  },
+  {
+    "name": "nombre",
+    "pattern": "(\\bLucia\\b|\\bValentin\\b|\\bIsabella\\b|\\bDaniel\\b|\\bOlivia\\b|\\bDavid\\b|\\bGabriel\\b|\\bAlexis\\b|\\bSofía\\b|\\bBenjamín\\b|\\bVictoria\\b|\\bSamuel\\b|\\bAmelia\\b|\\bLucas\\b|\\bAlexa\\b|\\bÁngel\\b|\\bJulia\\b|\\bJosé\\b|\\bCamila\\b|\\bAdrián\\b|\\bAlexandra\\b|\\bSebastián\\b|\\bMaya\\b|\\bXavier\\b|\\bAndrea\\b|\\bJuan\\b|\\bAriana\\b|\\bLuis\\b|\\bMaría\\b|\\bDiego\\b|\\bEva\\b|\\bÓliver\\b|\\bAngelina\\b|\\bCarlos\\b|\\bValeria\\b|\\bJesús\\b|\\bNatalia\\b|\\bAlex\\b|\\bIsabel\\b|\\bMax\\b|\\bSara\\b|\\bAlejandro\\b|\\bLiliana\\b|\\bAntonio\\b|\\bAdriana\\b|\\bMiguel\\b|\\bVíctor\\b|\\bDaniela\\b|\\bSantiago\\b|\\bValentina\\b|\\bElías\\b|\\bLila\\b|\\bIván\\b|\\bVivian\\b|\\bÓscar\\b|\\bNora\\b|\\bLeonardo\\b|\\bEduardo\\b|\\bAlan\\b|\\bNicolás\\b|\\bJorge\\b|\\bAlana\\b|\\bOmar\\b|\\bPaúl\\b|\\bAmanda\\b|\\bAndrés\\b|\\bJulián\\b|\\bJosué\\b|\\bPenélope\\b|\\bRomán\\b|\\bFernando\\b|\\bJavier\\b|\\bAbraham\\b|\\bAlicia\\b|\\bRicardo\\b|\\bFrancisco\\b|\\bCésar\\b|\\bMario\\b|\\bManuel\\b|\\bÉdgar\\b|\\bAlexis\\b|\\bIsrael\\b|\\bXimena\\b|\\bHéctor\\b|\\bCecilia\\b|\\bEmiliano\\b|\\bSimón\\b|\\bRafael\\b|\\bDaniella\\b|\\bMartín\\b|\\bMarcos\\b|\\bRoberto\\b|\\bPedro\\b|\\bEmanuel\\b|\\bAbel\\b|\\bRubén\\b|\\bFabián\\b|\\bEmilio\\b|\\bJoaquín\\b|\\bTatiana\\b|\\bLorenzo\\b|\\bArmando\\b|\\bAdán\\b|\\bRaúl\\b|\\bJulio\\b|\\bEnrique\\b|\\bGerardo\\b|\\bPablo\\b|\\bJaime\\b|\\bSaúl\\b|\\bEsteban\\b|\\bGustavo\\b|\\bRodrigo\\b|\\bArturo\\b|\\bMauricio\\b|\\bOrlando\\b|\\bHugo\\b|\\bMateo\\b|\\bMartín\\b|\\bLucas\\b|\\bLeo\\b|\\bDaniel\\b|\\bAlejandro\\b|\\bManuel\\b|\\bPablo\\b|\\bÁlvaro\\b)"
+  }
+]

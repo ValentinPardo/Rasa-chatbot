@@ -1,0 +1,32 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}]": "utter_respuesta_sobre_bot",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}, {\"prev_action\": {\"action_name\": \"utter_respuesta_sobre_bot\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"data_form\"}}]": "accion_tal_vez_te_intereseX",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"data_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"accion_tal_vez_te_intereseX\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Despedida\"}}]": "utter_despedirse",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Despedida\"}}, {\"prev_action\": {\"action_name\": \"utter_despedirse\"}, \"user\": {\"intent\": \"Despedida\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"pregunta_cordial\"}}]": "data_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"pregunta_cordial\"}}, {\"active_loop\": {\"name\": \"data_form\"}, \"prev_action\": {\"action_name\": \"data_form\"}, \"user\": {\"intent\": \"pregunta_cordial\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "data_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"data_form\"}, \"prev_action\": {\"action_name\": \"data_form\"}, \"user\": {\"intent\": \"pregunta_cordial\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Despedida\"}}, {\"prev_action\": {\"action_name\": \"utter_despedirse\"}, \"user\": {\"intent\": \"Despedida\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Despedida\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}, {\"prev_action\": {\"action_name\": \"utter_respuesta_sobre_bot\"}, \"user\": {\"intent\": \"Pregunta_Sobre_Bot\"}}]",
+      "predicting default action with intent session_start",
+      "handling active loops and forms - data_form - action_listen",
+      "predicting default action with intent back",
+      "predicting default action with intent restart",
+      "handling active loops and forms - data_form"
+    ]
+  }
+}

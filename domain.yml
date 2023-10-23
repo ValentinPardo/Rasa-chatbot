@@ -2,6 +2,8 @@ version: '3.1'
 rules:
 - despedirse
 - negar_ser_bot
+- Activate form
+- Deactivate form
 intents:
 - Afirmacion
 - Despedida
@@ -14,11 +16,21 @@ intents:
 - indicar_categoria
 - intencion_de_compra
 - pregunta_cordial
+- declaracion_sexo
+- declaracion_estudios
+- declaracion_edad
+
+
+#checkpoints:
+#  - parte_media
 
 entities:
 - nombre
 - objeto
 - categoria
+- sexo
+- edad
+- estudios
 slots:
   categoria:
     type: text
@@ -35,12 +47,34 @@ slots:
     mappings:
     - type: from_entity
       entity: nombre
+  sexo:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: sexo
+  edad:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: edad
+  estudios:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: estudios
+
+forms:
+  data_form:
+    required_slots:
+      - edad
+      - sexo
+      - estudios
 
 responses:
   utter_saludar:
   - text: Hola! Como estas?
   utter_saludar_con_nombre:
-  - text: Hola {nomre}! Como estas?
+  - text: Hola {nombre}! Como estas?
   utter_animar:
   - text: Tal vez esto te haga reir
     image: https://i.imgur.com/nGF1K8f.jpg
@@ -59,16 +93,24 @@ responses:
   - text: Muy bien! Sobre que categoria deseabas buscar en ML?
   utter_ask_compra_categoria:
   - text: "Muy bien gracias!, Si deseas hacer una busqueda, estas son las categorias por las que puedes buscar:
-          1-Vehiculo 2-Servicio 3-Objeto 4-Inmueble"
+          1-Vehiculo 2-Servicio 3-Producto 4-Inmueble"
   utter_busqueda_afirmativa:
   - text: Te intereso alguno?
   utter_ask_compra_objeto:
   - text: Cual de ellos te interesa?
   utter_finalizar_compra:
   - text: Perfecto, dejame tu email asi te envio los todos los detalles!
+  #Interacciones del form
+  utter_ask_data_form_edad:
+  - text: Cuantos años tenes?
+  utter_ask_data_form_sexo:
+  - text: Sos hombre o mujer?
+  utter_ask_data_form_estudios:
+  - text: Cual es tu mayor de nivel educativo terminado? (primarios/secundarios/universitarios)
   
 
 actions:
 - accion_informar_compra
 - accion_opciones
 - accion_saludar
+- accion_tal_vez_te_intereseX
